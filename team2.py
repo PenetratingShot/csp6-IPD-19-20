@@ -18,6 +18,15 @@ def move(my_history, their_history, my_score, their_score):
     Returns 'c' or 'b'. 
     '''
 
+    '''
+    If a person's last move is betray, they are less likely to betray the next round
+    As they keep betraying, they are less and less likely to betry
+    If the betray past a certain threshold, it becomes more and more clear that they're just doing one move. In that case, bring them down with you
+
+    Track how likely they are to betray as the game goes on, usually goes up
+    Track how likely they are to betray the next round, usually goes down
+    '''
+
     # my_history: a string with one letter (c or b) per round that has been played with this opponent.
     # their_history: a string of the same length as history, possibly empty. 
     # The first round between these two players is my_history[0] and their_history[0].
