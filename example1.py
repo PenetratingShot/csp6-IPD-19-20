@@ -6,9 +6,10 @@
 #     move: A function that returns 'c' or 'b'
 ####
 
+#idea 1
 team_name = 'E1'
-strategy_name = 'Betray'
-strategy_description = 'Always betray.'
+strategy_name = 'Random'
+strategy_description = 'Randomly collude or betray'
     
 def move(my_history, their_history, my_score, their_score):
     '''Make my move based on the history with this player.
@@ -19,7 +20,10 @@ def move(my_history, their_history, my_score, their_score):
     The most recent round is my_history[-1] and their_history[-1]
     
     Returns 'c' or 'b' for collude or betray.
+
+    Pick a random number between 0 and 1 every time the round is run.
+    If the number is 0, then betray. If 1, then collude.
+    This way, not even we will know our strategy, mking it harder to combat, I think
     '''
     
-    #This example player always betrays.      
     return 'b'

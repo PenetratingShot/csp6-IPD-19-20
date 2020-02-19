@@ -6,11 +6,11 @@
 #     move: A function that returns 'c' or 'b'
 ####
 
+#idea 3
 team_name = 'E3'
-strategy_name = 'Collude but retaliate'
+strategy_name = 'Check retailiation'
 strategy_description = '''\
-Collude first round. Collude, except in a round after getting 
-a severe punishment.'''
+Check if the opponent retaliates by betraying a random round and checking their reaction'''
     
 def move(my_history, their_history, my_score, their_score):
     '''Make my move based on the history with this player.
@@ -21,6 +21,11 @@ def move(my_history, their_history, my_score, their_score):
     The most recent round is my_history[-1] and their_history[-1]
     
     Returns 'c' or 'b' for collude or betray.
+
+    Let's pick a random constant number and betray that round.
+    If this is the round we're supposed to betray, then betray and end the function.
+    If this is before the round we're testing, just ignore.
+    If this is after the round we tested, then check if their history for that round is betray, and if so, update a variable or something to keep track of it
     '''
     if len(my_history)==0: # It's the first round; collude.
         return 'c'

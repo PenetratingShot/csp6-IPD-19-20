@@ -6,8 +6,9 @@
 #     move: A function that returns 'c' or 'b'
 ####
 
+#idea 2
 team_name = 'E2'
-strategy_name = 'Alternate'
+strategy_name = 'Betray every 3 rounds'
 strategy_description = 'Collude, then alternate.'
     
 def move(my_history, their_history, my_score, their_score):
@@ -19,8 +20,14 @@ def move(my_history, their_history, my_score, their_score):
     The most recent round is my_history[-1] and their_history[-1]
     
     Returns 'c' or 'b' for collude or betray.
+
+    Since we only get our previous history, we change check if this round is the third round by adding 1 to the length of our history and checking if it is divisible by 3
+    if len(my_history) + 1 % 3 == 0:
+      betray
+    else:
+      collude
     '''
-    # This player colludes on even numbered rounds (first round is round #0).
+    
     if len(my_history)%2 == 0:
         return 'c'
     else:
